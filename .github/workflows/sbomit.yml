@@ -26,6 +26,6 @@ jobs:
         uses: Uk-jake/sbomit-pipeline-runner@main
         with:
           build-command: |
-            make binary
+            make build
           sbom-format: spdx23
           use-syft: true
