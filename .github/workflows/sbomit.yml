@@ -1,7 +1,8 @@
-name: SBOMit Test
+name: Build Time
 
 on:
-  workflow_dispatch:
+  push:
+  pull_request:
 
 permissions:
   contents: read
@@ -22,10 +23,5 @@ jobs:
           go-version-file: go.mod
           cache: false
 
-      - name: Build under SBOMit
-        uses: Uk-jake/sbomit-pipeline-runner@main
-        with:
-          build-command: |
-            make build
-          sbom-format: spdx23
-          use-syft: true
+      - name: Build
+        run: make build
